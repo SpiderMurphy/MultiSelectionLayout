@@ -20,4 +20,12 @@ public interface MultiSelectionEvents {
      * item to be removed
      */
     void remove(Object item);
+
+    /**
+     * Notify selection modo switch on MultiSelectionLayout
+     *
+     * @param active
+     * activation flag
+     */
+    void notifySelectionMode(boolean active);
 }

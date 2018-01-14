@@ -8,8 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+
+import com.cyan.multiselectionlayout.MultiSelectionEvents;
+import com.cyan.multiselectionlayout.MultiSelectionLayout;
 
 public class MainActivity extends AppCompatActivity {
+    Button m_button;
+    MultiSelectionLayout m_selection_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +24,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        m_button = findViewById(R.id.click_me);
+        m_selection_layout = findViewById(R.id.multi_layout);
+
+        m_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                m_selection_layout.notifySelectionMode(!m_selection_layout.is_active());
             }
         });
     }

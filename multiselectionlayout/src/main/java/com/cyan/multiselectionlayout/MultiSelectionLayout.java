@@ -52,6 +52,16 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionE
 
     public void set_active(boolean m_active) {
         this.m_active = m_active;
+
+        // Reset selection
+        if(!m_active)
+            m_items.clear();
+
+        // Show / hide selection bar
+        if(m_active)
+            m_container.setVisibility(View.VISIBLE);
+        else
+            m_container.setVisibility(View.GONE);
     }
 
     public MultiSelectionLayout(@NonNull Context context) {
@@ -132,7 +142,7 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionE
         m_toolbar.setTitle("2 items");
 
         // Not visible at startup
-        //m_container.setVisibility(View.GONE);
+        m_container.setVisibility(View.GONE);
 
         addView(m_container);
     }
@@ -145,5 +155,10 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionE
     @Override
     public void remove(Object item) {
         m_items.remove(item);
+    }
+
+    @Override
+    public void notifySelectionMode(boolean active) {
+        set_active(active);
     }
 }
