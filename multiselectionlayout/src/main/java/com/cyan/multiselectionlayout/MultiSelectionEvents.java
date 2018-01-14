@@ -28,4 +28,11 @@ public interface MultiSelectionEvents {
      * activation flag
      */
     void notifySelectionMode(boolean active);
+
+    /**
+     *
+     * @return
+     * selected items count
+     */
+    int getSelectedItemsCount();
 }

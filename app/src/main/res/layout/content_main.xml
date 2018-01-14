@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:bg_gradient_start="@android:color/darker_gray"
-        app:bg_gradient_end="@android:color/transparent">
+        app:bg_gradient_end="@android:color/transparent"
+        app:menu_resource="@menu/menu1">
 
         <Button
             android:id="@+id/click_me"

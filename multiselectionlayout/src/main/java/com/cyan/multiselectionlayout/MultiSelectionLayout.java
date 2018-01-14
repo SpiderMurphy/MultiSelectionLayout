@@ -58,8 +58,10 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionE
             m_items.clear();
 
         // Show / hide selection bar
-        if(m_active)
+        if(m_active) {
             m_container.setVisibility(View.VISIBLE);
+            update();
+        }
         else
             m_container.setVisibility(View.GONE);
     }
@@ -112,6 +114,13 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionE
     }
 
     /**
+     * Update toolbar description (with new items count)
+     */
+    private void update(){
+        m_toolbar.setTitle(String.valueOf(m_items.size()) + " items selected");
+    }
+
+    /**
      * Override on finish inflate to append the toolbar
      * in the layout.
      */
@@ -138,9 +147,6 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionE
             m_toolbar.inflateMenu(m_menu_resource);
         }
 
-        // Test sets n items
-        m_toolbar.setTitle("2 items");
-
         // Not visible at startup
         m_container.setVisibility(View.GONE);
 
@@ -150,15 +156,22 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionE
     @Override
     public void add(Object item) {
         m_items.add(item);
+        update();
     }
 
     @Override
     public void remove(Object item) {
         m_items.remove(item);
+        update();
     }
 
     @Override
     public void notifySelectionMode(boolean active) {
         set_active(active);
+    }
+
+    @Override
+    public int getSelectedItemsCount() {
+        return m_items.size();
     }
 }
