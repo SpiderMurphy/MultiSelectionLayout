@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Toolbar width -->
+    <dimen name="mls_toolbar_width">288dp</dimen>
+</resources>
