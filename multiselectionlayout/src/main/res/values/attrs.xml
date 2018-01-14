@@ -6,5 +6,8 @@
 
         <!-- Gradient background end color -->
         <attr name="bg_gradient_end" format="color" />
+
+        <!-- Menu resource file -->
+        <attr name="menu_resource" format="reference" />
     </declare-styleable>
 </resources>

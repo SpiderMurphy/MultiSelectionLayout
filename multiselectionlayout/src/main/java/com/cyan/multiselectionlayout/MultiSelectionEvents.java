@@ -5,5 +5,19 @@ package com.cyan.multiselectionlayout;
  */
 
 public interface MultiSelectionEvents {
+    /**
+     * Add item to selection set
+     *
+     * @param item
+     * item to be added
+     */
+    void add(Object item);
 
+    /**
+     * Remove item from selection set
+     *
+     * @param item
+     * item to be removed
+     */
+    void remove(Object item);
 }
