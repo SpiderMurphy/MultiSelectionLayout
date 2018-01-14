@@ -12,16 +12,22 @@
         android:id="@+id/multi_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:bg_gradient_start="@android:color/darker_gray"
         app:bg_gradient_end="@android:color/transparent"
+        app:bg_gradient_start="@android:color/darker_gray"
         app:menu_resource="@menu/menu1">
 
-        <Button
-            android:id="@+id/click_me"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CLICK"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </com.cyan.multiselectionlayout.MultiSelectionLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 </android.support.constraint.ConstraintLayout>
