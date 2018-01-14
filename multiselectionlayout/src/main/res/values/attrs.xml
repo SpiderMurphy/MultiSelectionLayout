@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MultiSelectionLayout">
+        <!-- Gradient background start color -->
+        <attr name="bg_gradient_start" format="color" />
+
+        <!-- Gradient background end color -->
+        <attr name="bg_gradient_end" format="color" />
+    </declare-styleable>
+</resources>
