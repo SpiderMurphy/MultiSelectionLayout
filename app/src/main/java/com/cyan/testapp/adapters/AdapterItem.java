@@ -1,6 +1,7 @@
 package com.cyan.testapp.adapters;
 
 import android.databinding.DataBindingUtil;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -55,9 +56,11 @@ public class AdapterItem extends MultiSelectionAdapter<AdapterItem.ViewHolder> {
 
         if(isSelected(holder.get_binder().getItem())){
             holder.m_checkbox.setChecked(true);
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.colorRowHighLight));
         }
         else {
             holder.m_checkbox.setChecked(false);
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), android.R.color.white));
         }
 
         holder.m_checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -67,6 +70,8 @@ public class AdapterItem extends MultiSelectionAdapter<AdapterItem.ViewHolder> {
 
                 if(!isActive())
                     AdapterItem.this.notifyDataSetChanged();
+                else
+                    AdapterItem.this.notifyItemChanged(position);
             }
         });
 

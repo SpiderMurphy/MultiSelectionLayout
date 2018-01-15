@@ -9,6 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -120,6 +121,16 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionT
     }
 
     /**
+     * Set on menu item click listener for toolbar
+     *
+     * @param listener
+     * listener to be set
+     */
+    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener listener){
+        m_toolbar.setOnMenuItemClickListener(listener);
+    }
+
+    /**
      * Override on finish inflate to append the toolbar
      * in the layout.
      */
@@ -187,5 +198,10 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionT
     @Override
     public boolean isActive() {
         return m_active;
+    }
+
+    @Override
+    public Object[] getItems() {
+        return m_items.toArray();
     }
 }

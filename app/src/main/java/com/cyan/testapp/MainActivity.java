@@ -1,6 +1,8 @@
 package com.cyan.testapp;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.cyan.multiselectionlayout.MultiSelectionLayout;
 import com.cyan.testapp.adapters.AdapterItem;
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         m_recycler.setLayoutManager(new LinearLayoutManager(this));
         m_recycler.addItemDecoration(new DividerDcoration(this, 112));
 
+        setMenu();
+
         m_items = new LinkedList<>();
 
         for(int i=0; i<20; i++){
@@ -48,6 +53,57 @@ public class MainActivity extends AppCompatActivity {
         m_adapter.set_items(m_items);
 
         m_recycler.setAdapter(m_adapter);
+    }
+
+    private void setMenu(){
+        m_selection_layout.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                // Delete selected items
+                if(item.getItemId() == R.id.action_delete){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                    builder.setTitle("Confirm");
+                    builder.setMessage("Are you sure to delete " + String.valueOf(m_selection_layout.getSelectedItemsCount()) + " selected items ?");
+                    builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            for(Object object : m_selection_layout.getItems()){
+                                m_selection_layout.remove(object);
+                                m_items.remove(object);
+                            }
+
+                            m_recycler.getAdapter().notifyDataSetChanged();
+
+                            if(m_selection_layout.isEmpty())
+                                m_selection_layout.notifySelectionMode(false);
+                        }
+                    });
+
+                    builder.create();
+                    builder.show();
+                }
+                // Copy selected items
+                if(item.getItemId() == R.id.action_copy){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                    builder.setTitle("Confirm");
+                    builder.setMessage("Are you sure to copy " + String.valueOf(m_selection_layout.getSelectedItemsCount()) + " items ?");
+                    builder.setPositiveButton("Copy", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this, String.valueOf(m_selection_layout.getSelectedItemsCount()) + " items copied", Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    });
+
+                    builder.create();
+                    builder.show();
+                }
+
+                return false;
+            }
+        });
     }
 
     @Override

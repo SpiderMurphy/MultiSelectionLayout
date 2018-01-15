@@ -60,4 +60,11 @@ public interface MultiSelectionToolbar {
      * toolbar activate status
      */
     boolean isActive();
+
+    /**
+     *
+     * @return
+     * selected items
+     */
+    Object[] getItems();
 }
