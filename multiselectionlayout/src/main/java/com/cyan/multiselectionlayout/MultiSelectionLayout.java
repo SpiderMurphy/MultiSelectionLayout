@@ -2,7 +2,6 @@ package com.cyan.multiselectionlayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,7 +19,7 @@ import java.util.Set;
  * Created by Cyan on 14/01/2018.
  */
 
-public class MultiSelectionLayout extends FrameLayout implements MultiSelectionEvents {
+public class MultiSelectionLayout extends FrameLayout implements MultiSelectionToolbar {
     // Toolbar (extend class for further customizations)
     protected Toolbar m_toolbar;
 
