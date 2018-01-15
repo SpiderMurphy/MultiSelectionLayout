@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         m_recycler = findViewById(R.id.list_items);
 
         m_recycler.setLayoutManager(new LinearLayoutManager(this));
-        m_recycler.addItemDecoration(new DividerDcoration(this));
+        m_recycler.addItemDecoration(new DividerDcoration(this, 112));
 
         m_items = new LinkedList<>();
 

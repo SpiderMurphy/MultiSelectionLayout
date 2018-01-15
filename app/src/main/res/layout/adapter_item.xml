@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="76dp"
         android:minHeight="76dp"
+        android:background="@android:color/white"
+        android:foreground="?android:selectableItemBackground"
         android:orientation="horizontal">
 
         <RelativeLayout

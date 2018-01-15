@@ -70,6 +70,14 @@ public class AdapterItem extends MultiSelectionAdapter<AdapterItem.ViewHolder> {
             }
         });
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isActive())
+                    holder.m_checkbox.setChecked(!holder.m_checkbox.isChecked());
+            }
+        });
+
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
