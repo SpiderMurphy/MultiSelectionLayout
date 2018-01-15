@@ -35,4 +35,29 @@ public interface MultiSelectionToolbar {
      * selected items count
      */
     int getSelectedItemsCount();
+
+    /**
+     *
+     * @return
+     * true if empty
+     */
+    boolean isEmpty();
+
+    /**
+     * Check if a item is already selected
+     *
+     * @param item
+     * item to check
+     *
+     * @return
+     * true or false
+     */
+    boolean isSelected(Object item);
+
+    /**
+     *
+     * @return
+     * toolbar activate status
+     */
+    boolean isActive();
 }

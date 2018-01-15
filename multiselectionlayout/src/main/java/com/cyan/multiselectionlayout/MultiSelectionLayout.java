@@ -173,4 +173,19 @@ public class MultiSelectionLayout extends FrameLayout implements MultiSelectionT
     public int getSelectedItemsCount() {
         return m_items.size();
     }
+
+    @Override
+    public boolean isEmpty() {
+        return m_items.isEmpty();
+    }
+
+    @Override
+    public boolean isSelected(Object item) {
+        return m_items.contains(item);
+    }
+
+    @Override
+    public boolean isActive() {
+        return m_active;
+    }
 }
