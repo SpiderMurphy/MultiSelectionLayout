@@ -4,6 +4,7 @@ Multiselection layout allows to spawn a command bar at the bottom of the View li
 
 Currently under development.
 
-![alt tag](https://user-images.githubusercontent.com/13555265/34940510-0d3f4c34-f9f0-11e7-8661-f8d4c76a949a.png)
-
-![alt tag](https://user-images.githubusercontent.com/13555265/34940516-131e420e-f9f0-11e7-88a2-87ef8d6ed5b3.png)
+![alt tag](https://user-images.githubusercontent.com/13555265/34944622-a95aad10-fa00-11e7-8cb4-0afde5504327.png)
+![alt tag](https://user-images.githubusercontent.com/13555265/34944621-a9354886-fa00-11e7-9954-7e60c09afb8a.png)
+![alt tag](https://user-images.githubusercontent.com/13555265/34944623-a97afbf6-fa00-11e7-8cd0-02b6b989764e.png)
+![alt tag](https://user-images.githubusercontent.com/13555265/34944625-a99af91a-fa00-11e7-89a2-ef142d0c47a0.png)
